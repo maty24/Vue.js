@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue.js Intro</title>
+
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+<body>
+    
+    <!-- Control absoluto de este DIV -->
+    <div id="myApp">
+        <h1>Batman quotes  <small>{{ newQuote }}</small> </h1>
+        <input
+          type="text"
+          v-model="newQuote"
+          v-on:keypress.enter="addQuote"> <!--v-on para escuchar el evento y solo dispara cuando presiono una tecla -->
+
+        <hr>
+       
+        <ul>
+            <li v-for="({ quote, author }, index) in quotes"> > <!--v-for para iterar un objeto y desetructuro el objeto en v-for, el index esta porquie si para poner un numero-->
+                <span>{{ index + 1 }} - {{ quote }}</span>
+                <!-- <blockquote v-if="author">-{{ author }}</blockquote> -->
+                <blockquote v-show="false">-{{ author }}</blockquote>
+            </li>
+        </ul>
+
+    </div>
+    
+    
+    <script src="app.js"></script>
+
+</body>
+</html>
